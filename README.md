@@ -1,36 +1,259 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# J. A. POWERBUILT CONSTRUCTION
 
-## Getting Started
+A modern construction company website for **J. A. POWERBUILT CONSTRUCTION**, designed to present the company professionally, showcase completed work and services, build trust, and convert visitors into qualified project enquiries and estimate requests.
 
-First, run the development server:
+The visual direction is inspired by premium construction websites such as Vinewood Construction while being adapted for a Ghanaian construction company and local market expectations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Project Status
+
+**Planning / Initial Build Phase**
+
+Core project decisions are locked in and should not be changed without an explicit project decision.
+
+---
+
+## Primary Goals
+
+- Establish a strong professional online presence for J. A. POWERBUILT CONSTRUCTION.
+- Clearly communicate the company's construction capabilities and services.
+- Showcase completed and ongoing projects.
+- Generate enquiries and estimate requests.
+- Provide prospective clients with several easy contact paths.
+- Build credibility through project imagery, company information, certifications, testimonials, and process transparency.
+- Create a maintainable foundation that can later support a larger project portfolio, admin tools, blog/content, recruitment, and client-facing features.
+
+---
+
+## Locked Tech Stack
+
+| Area | Technology |
+|---|---|
+| Framework | Next.js |
+| Language | JavaScript |
+| Styling | Custom CSS |
+| ORM | Prisma |
+| Database | PostgreSQL on Neon |
+| Media / Project Images | Firebase Storage |
+| Transactional Email | Resend |
+| Hosting | Firebase App Hosting |
+| Source Control | GitHub |
+
+> **Important:** Firebase App Hosting is the selected hosting platform for this project.
+
+---
+
+## Design Direction
+
+### Core Brand Palette
+
+- **Construction Orange** — primary call-to-action and visual accent.
+- **Dark Charcoal** — primary structural/background color.
+- **White / warm off-white** — clean content surfaces and contrast.
+- **Ghanaian flag accents** — red, gold/yellow, and green used selectively rather than as dominant colors.
+
+The site should feel:
+
+- strong;
+- modern;
+- professional;
+- trustworthy;
+- engineered;
+- premium without looking overly corporate;
+- recognizably Ghanaian through restrained local accents and imagery.
+
+---
+
+## Proposed Website Structure
+
+```text
+/
+├── Home
+├── About
+├── Services
+├── Projects
+│   └── Project Detail
+├── Request Estimate
+├── Contact
+└── API Routes
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Potential future additions:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```text
+├── Careers
+├── News / Insights
+├── Client Portal
+└── Admin Dashboard
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Planned Home Page Sections
 
-To learn more about Next.js, take a look at the following resources:
+1. Header / Navigation
+2. Hero
+3. Company credibility / statistics
+4. About teaser
+5. Services overview
+6. Featured projects
+7. Why choose J. A. POWERBUILT
+8. Construction process
+9. Testimonials / trust content
+10. Strong estimate-request CTA
+11. Contact information
+12. Footer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Core Conversion Flow
 
-## Deploy on Vercel
+```text
+Visitor
+  ↓
+Reviews services / projects / company profile
+  ↓
+Clicks "Request an Estimate"
+  ↓
+Completes project enquiry form
+  ↓
+Server validates submission
+  ↓
+Enquiry stored in PostgreSQL
+  ↓
+Notification sent through Resend
+  ↓
+Company follows up with prospect
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development Principles
+
+- Build mobile-first and progressively enhance for larger screens.
+- Keep the visual system reusable.
+- Do not hard-code project content throughout components.
+- Keep server-only credentials out of the browser.
+- Validate all form input on the server.
+- Use accessible semantic HTML.
+- Optimize project images and loading behavior.
+- Build SEO fundamentals into the initial implementation.
+- Prefer simple, maintainable solutions over unnecessary abstractions.
+- Keep the codebase ready for future admin functionality.
+
+---
+
+## Suggested Initial Data Entities
+
+- `Service`
+- `Project`
+- `ProjectImage`
+- `Enquiry`
+- `Testimonial`
+- `SiteSetting` or equivalent configuration
+
+The exact Prisma schema should be finalized when implementation begins.
+
+---
+
+## Environment Variables
+
+A typical local environment will eventually include values similar to:
+
+```bash
+DATABASE_URL=
+DIRECT_URL=
+
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
+RESEND_API_KEY=
+CONTACT_NOTIFICATION_EMAIL=
+NEXT_PUBLIC_SITE_URL=
+```
+
+Never commit production secrets.
+
+---
+
+## Local Development
+
+After the project has been initialized:
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the local Next.js development URL shown in the terminal.
+
+Database workflow will normally include:
+
+```bash
+npx prisma generate
+npx prisma migrate dev
+```
+
+---
+
+## Recommended Repository Documentation
+
+The repository should contain:
+
+```text
+README.md
+PROJECT_BLUEPRINT.md
+.env.example
+prisma/
+src/ or app/
+public/
+```
+
+See `PROJECT_BLUEPRINT.md` for the complete project specification, architecture, wireframe plan, implementation phases, security model, database guidance, deployment flow, and Codex handoff instructions.
+
+---
+
+## Source Control
+
+GitHub is the source of truth for the codebase.
+
+Recommended workflow:
+
+```text
+feature branch
+   ↓
+local testing
+   ↓
+commit
+   ↓
+push to GitHub
+   ↓
+review
+   ↓
+merge
+   ↓
+Firebase App Hosting deployment
+```
+
+---
+
+## Current Locked Decisions
+
+- Company: **J. A. POWERBUILT CONSTRUCTION**
+- Website type: public-facing construction company / lead-generation website
+- Main user action: **request an estimate / project enquiry**
+- Hosting: **Firebase App Hosting**
+- Framework: **Next.js**
+- Language: **JavaScript**
+- Styling: **Custom CSS**
+- Database: **PostgreSQL / Neon**
+- ORM: **Prisma**
+- Media storage: **Firebase Storage**
+- Email: **Resend**
+- Source control: **GitHub**
+- Brand direction: **Orange + dark charcoal with selective Ghanaian flag accents**
