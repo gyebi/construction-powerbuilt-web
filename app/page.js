@@ -97,7 +97,14 @@ export default function Home() {
           </div>
 
           <div className="section-copy">
-            <div className="section-label">ABOUT POWERBUILT</div>
+            <div className="section-label-group">
+              <div className="section-label">ABOUT POWERBUILT</div>
+              <div className="ghana-accent">
+                <span className="ghana-red" />
+                <span className="ghana-gold" />
+                <span className="ghana-green" />
+              </div>
+            </div>
 
             <h2>
               Built with precision.
@@ -128,7 +135,14 @@ export default function Home() {
       <section className="section services-section" id="services">
         <div className="container">
           <div className="section-heading">
-            <div className="section-label">WHAT WE DO</div>
+            <div className="section-label-group">
+              <div className="section-label">WHAT WE DO</div>
+              <div className="ghana-accent">
+                <span className="ghana-red" />
+                <span className="ghana-gold" />
+                <span className="ghana-green" />
+              </div>
+            </div>
             <h2>One team. Multiple disciplines.</h2>
           </div>
 
@@ -192,7 +206,14 @@ export default function Home() {
       <section className="estimate-section" id="estimate">
         <div className="container estimate-layout">
           <div>
-            <div className="section-label light-label">START YOUR PROJECT</div>
+            <div className="section-label-group">
+              <div className="section-label light-label">START YOUR PROJECT</div>
+              <div className="ghana-accent">
+                <span className="ghana-red" />
+                <span className="ghana-gold" />
+                <span className="ghana-green" />
+              </div>
+            </div>
 
             <h2>Have a floor plan?</h2>
 
@@ -239,7 +260,14 @@ export default function Home() {
         <div className="container">
           <div className="section-heading horizontal-heading">
             <div>
-              <div className="section-label">OUR WORK</div>
+              <div className="section-label-group">
+                <div className="section-label">OUR WORK</div>
+                <div className="ghana-accent">
+                  <span className="ghana-red" />
+                  <span className="ghana-gold" />
+                  <span className="ghana-green" />
+                </div>
+              </div>
               <h2>Selected Projects</h2>
             </div>
 
@@ -283,7 +311,14 @@ export default function Home() {
       <section className="section process-section">
         <div className="container">
           <div className="section-heading">
-            <div className="section-label">OUR PROCESS</div>
+            <div className="section-label-group">
+              <div className="section-label">OUR PROCESS</div>
+              <div className="ghana-accent">
+                <span className="ghana-red" />
+                <span className="ghana-gold" />
+                <span className="ghana-green" />
+              </div>
+            </div>
             <h2>From plan to completion.</h2>
           </div>
 
@@ -307,7 +342,14 @@ export default function Home() {
 
       <section className="final-cta" id="contact">
         <div className="container">
-          <span className="section-label light-label">LET'S BUILD</span>
+          <div className="section-label-group">
+            <span className="section-label light-label">LET'S BUILD</span>
+            <div className="ghana-accent">
+              <span className="ghana-red" />
+              <span className="ghana-gold" />
+              <span className="ghana-green" />
+            </div>
+          </div>
 
           <h2>Have a project in mind?</h2>
 

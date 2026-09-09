@@ -227,6 +227,16 @@ select {
   margin-top: 45px;
 }
 
+.section-label + .ghana-accent {
+  width: 100%;
+  margin-top: -6px;
+  margin-bottom: 18px;
+}
+
+.section-label-group {
+  width: fit-content;
+}
+
 .ghana-red,
 .ghana-gold,
 .ghana-green {
@@ -399,6 +409,19 @@ select {
 
 .light-label {
   color: var(--orange);
+}
+
+.final-cta .ghana-accent {
+  margin-bottom: 18px;
+}
+
+.final-cta .section-label.light-label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.final-cta .section-label + .ghana-accent {
+  margin-top: 0;
 }
 
 .estimate-section p {
