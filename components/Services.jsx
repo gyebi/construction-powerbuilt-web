@@ -1,0 +1,57 @@
+import SectionLabel from "./SectionLabel";
+
+const services = [
+  [
+    "01",
+    "Construction",
+    "Residential and commercial building projects from foundation through completion.",
+  ],
+  [
+    "02",
+    "Quantity Estimation",
+    "Material takeoffs, cost estimates and bills of quantities for better project planning.",
+  ],
+  [
+    "03",
+    "Electrical Engineering",
+    "Electrical design, installation, testing, upgrades and consulting.",
+  ],
+  [
+    "04",
+    "Renovations",
+    "Building extensions, remodelling and upgrades for residential and commercial spaces.",
+  ],
+  [
+    "05",
+    "Project Management",
+    "Site supervision, coordination, planning and cost monitoring.",
+  ],
+  [
+    "06",
+    "Pre-Construction Consulting",
+    "Early-stage advice to help clients understand feasibility, requirements and budgets.",
+  ],
+];
+
+export default function ServicesSection() {
+  return (
+    <section className="section services-section" id="services">
+      <div className="container">
+        <div className="section-heading">
+          <SectionLabel>WHAT WE DO</SectionLabel>
+          <h2>One team. Multiple disciplines.</h2>
+        </div>
+
+        <div className="services-grid">
+          {services.map(([number, title, description]) => (
+            <article className="service-card" key={number}>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
