@@ -6,6 +6,8 @@ import { db } from "../../../src/prisma/db";
 
 import "./estimates.css";
 
+export const dynamic = "force-dynamic";
+
 function formatDate(value) {
   if (!value) return "—";
 

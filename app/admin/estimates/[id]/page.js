@@ -4,6 +4,8 @@ import { notFound, redirect } from "next/navigation";
 import { getAdminSession } from "../../../../lib/admin-auth";
 import { db } from "../../../../src/prisma/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function EstimateDetailPage({ params }) {
   const session = await getAdminSession();
 

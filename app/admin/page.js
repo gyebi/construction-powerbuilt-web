@@ -1,7 +1,11 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 import { getAdminSession } from "../../lib/admin-auth";
+
+import { redirect } from "next/navigation";
+
 
 import "./admin.css";
 
