@@ -1,0 +1,6 @@
+.formPanel { padding: clamp(24px, 4vw, 42px); background: white; border-top: 5px solid var(--orange); box-shadow: 0 16px 45px rgba(22,28,34,.08); }
+.formGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 24px; }
+.formGrid label { display: grid; gap: 8px; color: var(--charcoal); font-size: .82rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+.formGrid input, .formGrid textarea { width: 100%; border: 1px solid #cac7c0; padding: 12px 14px; color: var(--charcoal); background: white; font: inherit; font-size: 1rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
+.formGrid textarea { resize: vertical; }.full { grid-column: 1 / -1; }.error { color: #ad2114; font-weight: 700; }.success p { color: var(--text-muted); line-height: 1.7; }.success h2 { color: var(--charcoal); }
+@media (max-width: 520px) { .formGrid { grid-template-columns: 1fr; }.full { grid-column: auto; } }

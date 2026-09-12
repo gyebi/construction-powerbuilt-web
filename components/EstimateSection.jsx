@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionLabel from "./SectionLabel";
 
 export default function EstimateSection() {
@@ -20,28 +21,14 @@ export default function EstimateSection() {
             <span>UPLOAD YOUR PLAN</span>
           </div>
 
-          <label>Project Type</label>
-          <select defaultValue="">
-            <option value="" disabled>
-              Select project type
-            </option>
-            <option>Residential</option>
-            <option>Commercial</option>
-            <option>Renovation</option>
-            <option>Electrical</option>
-          </select>
-
-          <label>Project Location</label>
-          <input type="text" placeholder="Accra, Tema, Kumasi..." />
-
-          <label>Upload Drawings</label>
-
-          <div className="upload-box">
-            <strong>Drag files here or browse</strong>
-            <small>PDF • JPG • PNG</small>
+          <div className="upload-box" aria-hidden="true">
+            <strong>Plans, BOQs & drawings</strong>
+            <small>PDF • JPG • PNG · Up to 5 files</small>
           </div>
 
-          <button className="btn btn-primary full-button">Get My Estimate</button>
+          <Link className="btn btn-primary full-button" href="/estimate">
+            Start Your Estimate Request
+          </Link>
         </div>
       </div>
     </section>

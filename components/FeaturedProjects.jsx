@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionLabel from "./SectionLabel";
 
 export default function ProjectsSection() {
@@ -10,23 +11,23 @@ export default function ProjectsSection() {
             <h2>Selected Projects</h2>
           </div>
 
-          <a href="#projects" className="text-link">
+          <Link href="/projects" className="text-link">
             View All Projects →
-          </a>
+          </Link>
         </div>
 
         <div className="project-grid">
-          <div className="project-card large-project">
-            <span>FEATURED PROJECT</span>
-          </div>
+          <Link className="project-card large-project" href="/projects">
+            <span>RESIDENTIAL CONSTRUCTION</span>
+          </Link>
 
-          <div className="project-card">
-            <span>PROJECT</span>
-          </div>
+          <Link className="project-card project-card-estimation" href="/estimate">
+            <span>ESTIMATION &amp; BOQ</span>
+          </Link>
 
-          <div className="project-card">
-            <span>PROJECT</span>
-          </div>
+          <Link className="project-card project-card-electrical" href="/electrical">
+            <span>BUILDING ELECTRICAL WORKS</span>
+          </Link>
         </div>
       </div>
     </section>

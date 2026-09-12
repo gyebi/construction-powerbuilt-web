@@ -53,3 +53,15 @@ model ContactEnquiry {
   createdAt DateTime @default(now())
   updatedAt temporal.updatedAt()
 }
+
+
+model StaffUser {
+  id          String   @id @default(uuid())
+  firebaseUid String   @unique
+  email       String   @unique
+  displayName String?
+  role        String   @default("STAFF")
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   temporal.updatedAt()
+}

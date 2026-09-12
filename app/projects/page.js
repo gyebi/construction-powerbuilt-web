@@ -1,3 +1,9 @@
+import Link from "next/link";
+import styles from "../public-page.module.css";
+
+export const metadata = { title: "Projects" };
+const projectAreas = [["RESIDENTIAL CONSTRUCTION", "Homes shaped around a coordinated approach to construction, quantities and site delivery."], ["COMMERCIAL PROJECTS", "Practical planning and construction support for commercial spaces and business premises."], ["ELECTRICAL WORKS", "Building electrical design, installation and consulting integrated into the wider project."]];
+
 export default function ProjectsPage() {
-  return null;
+  return <main className={styles.page}><section className={styles.hero}><div className="container"><p className={styles.eyebrow}>OUR WORK</p><h1>Projects built around the details that matter.</h1><p>POWERBUILT supports residential, commercial and electrical work with a focus on preparation, coordination and delivery.</p></div></section><section className={styles.section}><div className="container"><p className={styles.eyebrow}>PROJECT CAPABILITIES</p><div className={styles.projectGrid}>{projectAreas.map(([title, text]) => <article className={styles.projectCard} key={title}><div><span>POWERBUILT</span><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section><section className={`${styles.section} ${styles.sectionAlt}`}><div className={`container ${styles.grid}`}><div><p className={styles.eyebrow}>PLANNING A PROJECT?</p><h2>Start with the information that helps us price it properly.</h2><p className={styles.lead}>Share your location, project type and drawings through our secure estimate request form. We&apos;ll use that information to understand the work before the conversation moves forward.</p><div className={styles.actions}><Link className="btn btn-primary" href="/estimate">Request an Estimate</Link><Link className="btn btn-dark" href="/contact">Contact POWERBUILT</Link></div></div><div className={`${styles.visual} ${styles.buildingVisual}`} role="img" aria-label="POWERBUILT construction project"><span>PROJECTS / GHANA</span></div></div></section></main>;
 }

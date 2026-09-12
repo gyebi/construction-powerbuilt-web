@@ -1,0 +1,125 @@
+[
+  {
+    "id": "table.staffUser",
+    "label": "Create table \"staffUser\"",
+    "summary": "Creates table \"staffUser\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "staffUser"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"staffUser\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"staffUser\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"staffUser\"",
+        "sql": "CREATE TABLE \"public\".\"staffUser\" (\n  \"active\" bool DEFAULT true NOT NULL,\n  \"createdAt\" timestamptz DEFAULT (now()) NOT NULL,\n  \"displayName\" text,\n  \"email\" text NOT NULL,\n  \"firebaseUid\" text NOT NULL,\n  \"id\" text NOT NULL,\n  \"role\" text DEFAULT 'STAFF' NOT NULL,\n  \"updatedAt\" timestamptz NOT NULL,\n  PRIMARY KEY (\"id\")\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"staffUser\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"staffUser\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "unique.staffUser.staffUser_firebaseUid_key",
+    "label": "Add unique constraint on \"staffUser\" (firebaseUid)",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "unique",
+        "name": "staffUser_firebaseUid_key",
+        "table": "staffUser"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"staffUser_firebaseUid_key\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "staffUser_firebaseUid_key",
+          "public",
+          "\"public\".\"staffUser\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "add unique constraint \"staffUser_firebaseUid_key\"",
+        "sql": "ALTER TABLE \"public\".\"staffUser\" ADD CONSTRAINT \"staffUser_firebaseUid_key\" UNIQUE (\"firebaseUid\")"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify constraint \"staffUser_firebaseUid_key\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "staffUser_firebaseUid_key",
+          "public",
+          "\"public\".\"staffUser\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "unique.staffUser.staffUser_email_key",
+    "label": "Add unique constraint on \"staffUser\" (email)",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "unique",
+        "name": "staffUser_email_key",
+        "table": "staffUser"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"staffUser_email_key\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "staffUser_email_key",
+          "public",
+          "\"public\".\"staffUser\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "add unique constraint \"staffUser_email_key\"",
+        "sql": "ALTER TABLE \"public\".\"staffUser\" ADD CONSTRAINT \"staffUser_email_key\" UNIQUE (\"email\")"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify constraint \"staffUser_email_key\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "staffUser_email_key",
+          "public",
+          "\"public\".\"staffUser\""
+        ]
+      }
+    ]
+  }
+]

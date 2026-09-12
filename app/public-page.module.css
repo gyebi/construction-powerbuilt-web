@@ -1,0 +1,37 @@
+.page { background: var(--off-white); }
+.hero { min-height: 390px; padding: 108px 0 70px; display: grid; align-items: end; color: white; background: linear-gradient(115deg, #111b23 0%, #202f3a 62%, #e87514 160%); }
+.eyebrow { margin: 0 0 16px; color: var(--orange); font-size: .76rem; font-weight: 800; letter-spacing: .18em; }
+.hero h1, .section h2 { margin: 0; letter-spacing: -.045em; line-height: 1; }
+.hero h1 { max-width: 850px; font-size: clamp(3rem, 6vw, 5.4rem); }
+.hero p { max-width: 660px; margin: 22px 0 0; color: rgba(255,255,255,.78); font-size: 1.08rem; line-height: 1.7; }
+.section { padding: 90px 0; }
+.sectionAlt { background: white; }
+.grid, .cards, .serviceGrid, .projectGrid { display: grid; gap: 24px; }
+.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: clamp(32px, 7vw, 90px); }
+.cards, .serviceGrid, .projectGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.section h2 { max-width: 760px; font-size: clamp(2.25rem, 4vw, 4rem); }
+.lead, .card p, .serviceCard p, .projectCard p, .list li { color: var(--text-muted); line-height: 1.75; }
+.lead { max-width: 660px; font-size: 1.05rem; }
+.visual, .projectCard { min-height: 310px; padding: 28px; display: flex; align-items: end; color: white; background: linear-gradient(135deg, rgba(232,117,20,.95), rgba(22,28,34,.92)), repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,255,255,.1) 34px 36px); }
+.buildingVisual { background: linear-gradient(135deg, rgba(22,28,34,.18), rgba(22,28,34,.78)), url("/images/building%201.jpg") center / cover; }
+.siteVisual { background: linear-gradient(135deg, rgba(22,28,34,.15), rgba(22,28,34,.78)), url("/images/image_fx_-10.png") center / cover; }
+.electricalVisual { background: linear-gradient(135deg, rgba(22,28,34,.32), rgba(22,28,34,.8)), url("/images/photo-1658590842120-2a0b2a68c725.avif") center / cover; }
+.visual span, .projectCard span { font-size: .76rem; font-weight: 800; letter-spacing: .14em; }
+.card, .serviceCard { padding: 30px; border: 1px solid var(--concrete); background: white; }
+.card h3, .serviceCard h3 { margin: 0 0 14px; font-size: 1.35rem; }
+.number { display: inline-block; margin-bottom: 30px; color: var(--orange); font-weight: 900; }
+.serviceCard { min-height: 255px; }
+.serviceCard a { color: var(--orange); font-weight: 800; }
+.projectCard { min-height: 360px; position: relative; overflow: hidden; }
+.projectCard:nth-child(1) { background: linear-gradient(135deg, rgba(22,28,34,.15), rgba(22,28,34,.8)), url("/images/image_fx_-10.png") center / cover; }
+.projectCard:nth-child(2) { background: linear-gradient(135deg, rgba(22,28,34,.16), rgba(22,28,34,.82)), url("/images/building%201.jpg") center / cover; }
+.projectCard:nth-child(3) { background: linear-gradient(135deg, rgba(22,28,34,.32), rgba(22,28,34,.8)), url("/images/photo-1658590842120-2a0b2a68c725.avif") center / cover; }
+.projectCard div { position: relative; }
+.projectCard h3 { margin: 9px 0 0; font-size: 1.7rem; }
+.list { margin: 24px 0 0; padding: 0; list-style: none; }
+.list li { padding: 14px 0; border-top: 1px solid var(--concrete); }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.darkSection { color: white; background: var(--charcoal); }
+.darkSection .lead, .darkSection .list li { color: rgba(255,255,255,.7); }
+@media (max-width: 850px) { .cards, .serviceGrid, .projectGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .hero { min-height: 330px; padding: 88px 0 54px; } .section { padding: 64px 0; } .grid, .cards, .serviceGrid, .projectGrid { grid-template-columns: 1fr; } .visual { min-height: 240px; } }

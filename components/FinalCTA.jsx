@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionLabel from "./SectionLabel";
 
 export default function FinalCta() {
@@ -11,13 +12,13 @@ export default function FinalCta() {
         <p>Let&apos;s price it properly before you build.</p>
 
         <div className="hero-actions">
-          <a href="#estimate" className="btn btn-primary">
+          <Link href="/estimate" className="btn btn-primary">
             Upload Your Floor Plan
-          </a>
+          </Link>
 
-          <a href="#contact" className="btn btn-outline">
+          <Link href="/contact" className="btn btn-outline">
             Contact Powerbuilt
-          </a>
+          </Link>
         </div>
       </div>
     </section>

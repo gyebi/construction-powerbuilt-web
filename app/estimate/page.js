@@ -4,8 +4,7 @@ import { useState } from "react";
 import "./estimate-page.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-
-
+import { getPowerbuiltWhatsAppUrl } from "../../lib/contact";
 
 
 const initialForm = {
@@ -28,9 +27,6 @@ const ALLOWED_TYPES = [
   "image/png",
 ];
 
-const whatsappNumber =
-  process.env.NEXT_PUBLIC_POWERBUILT_WHATSAPP_NUMBER;
-
 function getWhatsAppUrl(referenceNumber) {
   const message = [
     "Hello J. A. POWERBUILT CONSTRUCTION.",
@@ -40,9 +36,7 @@ function getWhatsAppUrl(referenceNumber) {
     "I would like to continue discussing my project on WhatsApp.",
   ].join("\n");
 
-  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    message
-  )}`;
+  return getPowerbuiltWhatsAppUrl(message);
 }
 
 export default function EstimatePage() {
@@ -206,17 +200,15 @@ export default function EstimatePage() {
               <strong>{result.referenceNumber}</strong>
             </div>
 
-            {whatsappNumber ? (
-              <a
-                className="btn btn-whatsapp"
-                href={getWhatsAppUrl(result.referenceNumber)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faWhatsapp} />
-                Continue on WhatsApp
-              </a>
-            ) : null}
+            <a
+              className="btn btn-whatsapp"
+              href={getWhatsAppUrl(result.referenceNumber)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+              Continue on WhatsApp
+            </a>
 
             {result.uploadedCount > 0 ? (
               <p>

@@ -34,6 +34,10 @@ export default function Footer() {
               <span>WhatsApp Us</span>
             </a>
           ) : null}
+
+          <Link className="footer-staff-login" href="/admin">
+            Staff Login
+          </Link>
         </div>
 
         <div>

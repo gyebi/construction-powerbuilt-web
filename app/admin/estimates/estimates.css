@@ -1,0 +1,111 @@
+.estimates-page {
+  min-height: 100vh;
+  background: #f5f2eb;
+  padding: 64px 24px;
+}
+
+.estimates-shell {
+  width: min(1220px, 100%);
+  margin: 0 auto;
+}
+
+.estimates-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.estimates-header h1 {
+  margin: 8px 0;
+  color: #161c22;
+  font-size: 2.4rem;
+}
+
+.estimates-header p {
+  margin: 0;
+  color: #66707a;
+}
+
+.back-link {
+  color: #e87514;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.estimate-table-wrap {
+  overflow-x: auto;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #dedbd3;
+}
+
+.estimate-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.estimate-table th,
+.estimate-table td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid #ece9e2;
+}
+
+.estimate-table th {
+  background: #161c22;
+  color: white;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+
+.estimate-table td {
+  color: #303840;
+}
+
+.customer-name {
+  font-weight: 700;
+}
+
+.customer-contact {
+  margin-top: 4px;
+  color: #818991;
+  font-size: 0.85rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef1f3;
+  color: #39434c;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.status-new {
+  background: #fff0df;
+  color: #b55508;
+}
+
+.view-link {
+  color: #e87514;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.empty-state {
+  padding: 48px;
+  background: white;
+  border-radius: 16px;
+  text-align: center;
+  color: #66707a;
+}
+
+@media (max-width: 800px) {
+  .estimates-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

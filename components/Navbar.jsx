@@ -68,6 +68,13 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+          <Link
+            className="nav-estimate"
+            href="/estimate"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Request Estimate
+          </Link>
         </nav>
       </div>
     </header>

@@ -1,0 +1,137 @@
+
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background:
+    linear-gradient(
+      rgba(15, 20, 25, 0.92),
+      rgba(15, 20, 25, 0.96)
+    ),
+    url("/images/hero-construction.jpg") center/cover no-repeat;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 38px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.admin-login-card .section-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #e87514;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.admin-login-card h1 {
+  margin: 0 0 10px;
+  color: #161c22;
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.admin-login-card > p {
+  margin: 0 0 28px;
+  color: #66707a;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.admin-login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-login-card label {
+  margin-top: 8px;
+  color: #202931;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.admin-login-card input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #d8dde2;
+  border-radius: 10px;
+  background: #f9fafb;
+  color: #161c22;
+  font-size: 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin-login-card input:focus {
+  border-color: #e87514;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(232, 117, 20, 0.12);
+}
+
+.admin-login-card [role="alert"] {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #fff1f2;
+  color: #b42318;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.admin-login-card .btn {
+  margin-top: 14px;
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.98rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.admin-login-card .btn-primary {
+  background: #e87514;
+  color: #ffffff;
+}
+
+.admin-login-card .btn-primary:hover {
+  background: #cf6510;
+  transform: translateY(-1px);
+}
+
+.admin-login-card .btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  .admin-login-page {
+    padding: 24px 16px;
+  }
+
+  .admin-login-card {
+    padding: 28px 22px;
+    border-radius: 14px;
+  }
+
+  .admin-login-card h1 {
+    font-size: 1.8rem;
+  }
+}

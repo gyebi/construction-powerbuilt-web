@@ -1,3 +1,4 @@
+import Link from "next/link";
 import GhanaAccent from "./GhanaAccent";
 
 export default function Hero() {
@@ -24,13 +25,13 @@ export default function Hero() {
         </p>
 
         <div className="hero-actions">
-          <a href="#estimate" className="btn btn-primary">
+          <Link href="/estimate" className="btn btn-primary">
             Request an Estimate
-          </a>
+          </Link>
 
-          <a href="#estimate" className="btn btn-outline">
+          <Link href="/estimate" className="btn btn-outline">
             Upload Your Floor Plan
-          </a>
+          </Link>
         </div>
 
         <GhanaAccent />

@@ -186,6 +186,15 @@ select {
   color: var(--charcoal);
 }
 
+.btn-dark {
+  background: var(--charcoal);
+  color: white;
+}
+
+.btn-dark:hover {
+  background: var(--charcoal-soft, #1b232b);
+}
+
 /* Hero */
 
 .hero {
@@ -200,7 +209,7 @@ select {
       rgba(17, 19, 21, 0.82) 45%,
       rgba(17, 19, 21, 0.42) 100%
     ),
-    url("/images/hero-construction.jpg") center / cover;
+    url("/images/image_fx_-10.png") center / cover;
   color: white;
 }
 
@@ -350,6 +359,20 @@ select {
   letter-spacing: 0.15em;
 }
 
+.construction-visual {
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  background:
+    linear-gradient(135deg, rgba(22, 28, 34, 0.18), rgba(22, 28, 34, 0.82)),
+    url("/images/building%201.jpg") center / cover;
+}
+
 .section-label {
   color: var(--orange);
   margin-bottom: 18px;
@@ -414,6 +437,18 @@ select {
   border-right: 1px solid var(--concrete);
   border-bottom: 1px solid var(--concrete);
   min-height: 300px;
+}
+
+.service-card:hover {
+  background: var(--off-white);
+}
+
+.service-card-link {
+  display: block;
+  margin-top: 26px;
+  color: var(--orange);
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 .service-card > span {
@@ -548,6 +583,28 @@ select {
 }
 
 .large-project {
+  background:
+    linear-gradient(135deg, rgba(22, 28, 34, 0.12), rgba(22, 28, 34, 0.75)),
+    url("/images/image_fx_-10.png") center / cover;
+}
+
+.project-card:hover {
+  opacity: 0.9;
+}
+
+.project-card-estimation {
+  background:
+    linear-gradient(135deg, rgba(22, 28, 34, 0.2), rgba(22, 28, 34, 0.82)),
+    url("/images/building%201.jpg") center / cover;
+}
+
+.project-card-electrical {
+  background:
+    linear-gradient(135deg, rgba(22, 28, 34, 0.35), rgba(22, 28, 34, 0.76)),
+    url("/images/photo-1658590842120-2a0b2a68c725.avif") center / cover;
+}
+
+.large-project {
   grid-row: span 2;
 }
 
@@ -569,11 +626,11 @@ select {
 }
 
 .build-panel {
-  background: var(--charcoal);
+  background: linear-gradient(135deg, var(--charcoal), #314653);
 }
 
 .power-panel {
-  background: var(--orange);
+  background: linear-gradient(135deg, var(--orange), #a84e0d);
 }
 
 .build-panel span,
@@ -673,6 +730,25 @@ select {
   color: #25d366;
 }
 
+.footer-grid .footer-staff-login {
+  width: fit-content;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-grid .footer-staff-login:hover {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.nav-estimate {
+  padding: 11px 14px;
+  border: 1px solid var(--orange);
+  color: white;
+  font-weight: 800;
+}
+
 /* Responsive */
 
 @media (max-width: 1000px) {
@@ -734,6 +810,11 @@ select {
     padding: 14px 22px;
   }
 
+  .main-nav .nav-estimate {
+    margin: 8px 14px 4px;
+    text-align: center;
+  }
+
   .main-nav a:hover {
     background: rgba(255, 255, 255, 0.08);
   }
@@ -783,6 +864,10 @@ select {
 
   .estimate-card {
     padding: 25px;
+  }
+
+  .construction-visual {
+    min-height: 320px;
   }
 
   .horizontal-heading {

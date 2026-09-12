@@ -1,11 +1,12 @@
+import Link from "next/link";
 import SectionLabel from "./SectionLabel";
 
 export default function AboutSection() {
   return (
     <section className="section about-section" id="about">
       <div className="container two-column">
-        <div className="image-placeholder">
-          <span>PROJECT IMAGE</span>
+        <div className="construction-visual construction-visual-about" role="img" aria-label="Abstract construction structure">
+          <span>POWERBUILT / GHANA</span>
         </div>
 
         <div className="section-copy">
@@ -30,9 +31,9 @@ export default function AboutSection() {
             <span>Renovations</span>
           </div>
 
-          <a href="#services" className="text-link">
+          <Link href="/services" className="text-link">
             Explore Our Services →
-          </a>
+          </Link>
         </div>
       </div>
     </section>
