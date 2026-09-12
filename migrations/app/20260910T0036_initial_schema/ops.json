@@ -1,0 +1,259 @@
+[
+  {
+    "id": "schema.public",
+    "label": "Create schema \"public\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres"
+    },
+    "precheck": [],
+    "execute": [
+      {
+        "description": "Create schema \"public\"",
+        "sql": "CREATE SCHEMA IF NOT EXISTS \"public\"",
+        "params": []
+      }
+    ],
+    "postcheck": []
+  },
+  {
+    "id": "table.contactEnquiry",
+    "label": "Create table \"contactEnquiry\"",
+    "summary": "Creates table \"contactEnquiry\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "contactEnquiry"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"contactEnquiry\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"contactEnquiry\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"contactEnquiry\"",
+        "sql": "CREATE TABLE \"public\".\"contactEnquiry\" (\n  \"createdAt\" timestamptz DEFAULT (now()) NOT NULL,\n  \"email\" text,\n  \"id\" \"uuid\" NOT NULL,\n  \"message\" text NOT NULL,\n  \"name\" text NOT NULL,\n  \"phone\" text,\n  \"status\" text DEFAULT 'NEW' NOT NULL,\n  \"subject\" text,\n  \"updatedAt\" timestamptz NOT NULL,\n  PRIMARY KEY (\"id\")\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"contactEnquiry\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"contactEnquiry\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "table.estimateFile",
+    "label": "Create table \"estimateFile\"",
+    "summary": "Creates table \"estimateFile\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "estimateFile"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"estimateFile\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"estimateFile\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"estimateFile\"",
+        "sql": "CREATE TABLE \"public\".\"estimateFile\" (\n  \"estimateRequestId\" \"uuid\" NOT NULL,\n  \"fileName\" text NOT NULL,\n  \"fileSize\" int4,\n  \"fileType\" text,\n  \"id\" \"uuid\" NOT NULL,\n  \"storagePath\" text NOT NULL,\n  \"uploadedAt\" timestamptz DEFAULT (now()) NOT NULL,\n  PRIMARY KEY (\"id\")\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"estimateFile\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"estimateFile\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "table.estimateRequest",
+    "label": "Create table \"estimateRequest\"",
+    "summary": "Creates table \"estimateRequest\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "estimateRequest"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"estimateRequest\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"estimateRequest\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"estimateRequest\"",
+        "sql": "CREATE TABLE \"public\".\"estimateRequest\" (\n  \"createdAt\" timestamptz DEFAULT (now()) NOT NULL,\n  \"customerName\" text NOT NULL,\n  \"description\" text,\n  \"email\" text,\n  \"estimateType\" text,\n  \"id\" \"uuid\" NOT NULL,\n  \"phone\" text NOT NULL,\n  \"projectLocation\" text NOT NULL,\n  \"projectType\" text NOT NULL,\n  \"referenceNumber\" text NOT NULL,\n  \"status\" text DEFAULT 'NEW' NOT NULL,\n  \"updatedAt\" timestamptz NOT NULL,\n  \"whatsapp\" text,\n  PRIMARY KEY (\"id\")\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"estimateRequest\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"estimateRequest\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "unique.estimateRequest.estimateRequest_referenceNumber_key",
+    "label": "Add unique constraint on \"estimateRequest\" (referenceNumber)",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "unique",
+        "name": "estimateRequest_referenceNumber_key",
+        "table": "estimateRequest"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"estimateRequest_referenceNumber_key\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "estimateRequest_referenceNumber_key",
+          "public",
+          "\"public\".\"estimateRequest\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "add unique constraint \"estimateRequest_referenceNumber_key\"",
+        "sql": "ALTER TABLE \"public\".\"estimateRequest\" ADD CONSTRAINT \"estimateRequest_referenceNumber_key\" UNIQUE (\"referenceNumber\")"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify constraint \"estimateRequest_referenceNumber_key\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "estimateRequest_referenceNumber_key",
+          "public",
+          "\"public\".\"estimateRequest\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "index.estimateFile.estimateFile_estimateRequestId_idx_43bd8063",
+    "label": "Create index \"estimateFile_estimateRequestId_idx_43bd8063\" on \"estimateFile\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "index",
+        "name": "estimateFile_estimateRequestId_idx_43bd8063",
+        "table": "estimateFile"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure index \"estimateFile_estimateRequestId_idx_43bd8063\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"estimateFile_estimateRequestId_idx_43bd8063\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create index \"estimateFile_estimateRequestId_idx_43bd8063\"",
+        "sql": "CREATE INDEX \"estimateFile_estimateRequestId_idx_43bd8063\" ON \"public\".\"estimateFile\" (\"estimateRequestId\")",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify index \"estimateFile_estimateRequestId_idx_43bd8063\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"estimateFile_estimateRequestId_idx_43bd8063\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "foreignKey.estimateFile.estimateFile_estimateRequestId_fkey",
+    "label": "Add foreign key \"estimateFile_estimateRequestId_fkey\" on \"estimateFile\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "foreignKey",
+        "name": "estimateFile_estimateRequestId_fkey",
+        "table": "estimateFile"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure FK \"estimateFile_estimateRequestId_fkey\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "estimateFile_estimateRequestId_fkey",
+          "public",
+          "\"public\".\"estimateFile\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "add FK \"estimateFile_estimateRequestId_fkey\"",
+        "sql": "ALTER TABLE \"public\".\"estimateFile\"\nADD CONSTRAINT \"estimateFile_estimateRequestId_fkey\"\nFOREIGN KEY (\"estimateRequestId\")\nREFERENCES \"public\".\"estimateRequest\" (\"id\")"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify FK \"estimateFile_estimateRequestId_fkey\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "estimateFile_estimateRequestId_fkey",
+          "public",
+          "\"public\".\"estimateFile\""
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,278 @@
+.estimate-page {
+  background: var(--off-white);
+}
+
+.estimate-page-heading {
+  max-width: 760px;
+  margin-bottom: 60px;
+}
+
+.estimate-page-heading h1 {
+  margin: 0 0 20px;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.estimate-page-heading p {
+  max-width: 650px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.estimate-page-heading .section-label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 34px;
+  margin-top: 20px;
+}
+
+.estimate-page-heading .section-label::after {
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  content: "";
+  background: linear-gradient(
+    to right,
+    var(--ghana-red) 0 33.333%,
+    var(--ghana-gold) 33.333% 66.666%,
+    var(--ghana-green) 66.666% 100%
+  );
+}
+
+.estimate-form {
+  display: grid;
+  gap: 32px;
+}
+
+.estimate-form-section {
+  background: white;
+  border: 1px solid var(--concrete);
+  padding: 40px;
+}
+
+.estimate-form-section-heading {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 32px;
+}
+
+.estimate-form-section-heading > span {
+  color: var(--orange);
+  font-weight: 900;
+}
+
+.estimate-form-section-heading h2 {
+  margin: 0 0 4px;
+}
+
+.estimate-form-section-heading p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field-full {
+  margin-top: 24px;
+}
+
+.form-field label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid #cbc7bf;
+  background: white;
+  color: var(--text-dark);
+  padding: 14px;
+  outline: none;
+}
+
+.form-field input,
+.form-field select {
+  min-height: 52px;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--orange);
+}
+
+.estimate-submit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.estimate-submit-row p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.form-error {
+  padding: 16px 18px;
+  border-left: 4px solid #b42318;
+  background: #fff1f0;
+  color: #8a1c13;
+}
+
+.estimate-success {
+  max-width: 760px;
+  padding: 48px;
+  background: white;
+  border: 1px solid var(--concrete);
+}
+
+.estimate-success > span {
+  color: var(--orange);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.estimate-success h2 {
+  margin: 10px 0;
+  font-size: 3rem;
+}
+
+.estimate-success p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.estimate-reference {
+  margin: 30px 0;
+  padding: 24px;
+  background: var(--charcoal);
+  color: white;
+}
+
+.estimate-reference small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--orange);
+  font-weight: 800;
+}
+
+.estimate-reference strong {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  letter-spacing: 0.06em;
+}
+
+.selected-files {
+  margin-top: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.selected-file {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--concrete);
+  background: var(--off-white);
+}
+
+.selected-file > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.selected-file strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selected-file span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.selected-file button {
+  border: 0;
+  background: transparent;
+  color: #a5281b;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.selected-file button:hover {
+  text-decoration: underline;
+}
+
+.estimate-submit-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-whatsapp {
+  margin-top: 12px;
+  background: #25d366;
+  color: white;
+  border-color: #25d366;
+}
+
+.btn-whatsapp:hover {
+  background: #1fb85a;
+  border-color: #1fb85a;
+}
+
+.btn-whatsapp svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 760px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .estimate-form-section {
+    padding: 26px;
+  }
+
+  .estimate-submit-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .estimate-submit-row .btn {
+    width: 100%;
+  }
+
+  .estimate-success {
+    padding: 30px;
+  }
+}

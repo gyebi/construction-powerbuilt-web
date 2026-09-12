@@ -159,12 +159,21 @@ The exact Prisma schema should be finalized when implementation begins.
 
 ## Environment Variables
 
-A typical local environment will eventually include values similar to:
+A local environment requires the following values:
 
 ```bash
 DATABASE_URL=
+# Optional unless a tool requires an unpooled connection.
 DIRECT_URL=
 
+# Firebase Admin (server only)
+FIREBASE_PROJECT_ID=
+FIREBASE_STORAGE_BUCKET=
+# For local Firebase Admin authentication when Application Default Credentials
+# have not been configured through the Google Cloud CLI:
+# GOOGLE_APPLICATION_CREDENTIALS=/absolute/path/to/service-account.json
+
+# Firebase Web App
 NEXT_PUBLIC_FIREBASE_API_KEY=
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=
@@ -172,12 +181,12 @@ NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NEXT_PUBLIC_FIREBASE_APP_ID=
 
-RESEND_API_KEY=
-CONTACT_NOTIFICATION_EMAIL=
-NEXT_PUBLIC_SITE_URL=
+NEXT_PUBLIC_POWERBUILT_WHATSAPP_NUMBER=
 ```
 
-Never commit production secrets.
+Never commit production secrets or a Firebase service-account JSON file. The
+Firebase web configuration is public by design; enforce access through Firebase
+Authentication, Firestore, and Storage security rules.
 
 ---
 

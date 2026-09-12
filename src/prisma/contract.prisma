@@ -1,0 +1,55 @@
+types {
+  Uuid = Uuid
+}
+
+model EstimateRequest {
+  id              Uuid     @id @default(uuid())
+  referenceNumber String   @unique
+
+  customerName    String
+  email           String?
+  phone           String
+  whatsapp        String?
+
+  projectLocation String
+  projectType     String
+  estimateType    String?
+
+  description String?
+  status      String   @default("NEW")
+
+  createdAt DateTime @default(now())
+  updatedAt temporal.updatedAt()
+
+  files EstimateFile[]
+}
+
+model EstimateFile {
+  id                Uuid @id @default(uuid())
+  estimateRequestId Uuid
+
+  fileName    String
+  storagePath String
+  fileType    String?
+  fileSize    Int?
+
+  uploadedAt DateTime @default(now())
+
+  estimateRequest EstimateRequest @relation(
+    fields: [estimateRequestId],
+    references: [id]
+  )
+}
+
+model ContactEnquiry {
+  id      Uuid   @id @default(uuid())
+  name    String
+  email   String?
+  phone   String?
+  subject String?
+  message String
+
+  status    String   @default("NEW")
+  createdAt DateTime @default(now())
+  updatedAt temporal.updatedAt()
+}

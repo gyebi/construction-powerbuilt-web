@@ -1,30 +1,59 @@
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
+import {
+  getPowerbuiltWhatsAppUrl,
+  POWERBUILT_WHATSAPP_NUMBER,
+} from "../lib/contact";
+
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
-        <div>
-          <div className="brand-name">J. A. POWERBUILT</div>
-          <div className="brand-subtitle">CONSTRUCTION</div>
+
+        <div className="footer-brand">
+          <Link
+            href="/"
+            aria-label="J. A. Powerbuilt Construction home"
+          >
+            <div className="brand-name">J. A. POWERBUILT</div>
+            <div className="brand-subtitle">CONSTRUCTION</div>
+          </Link>
+
+          {POWERBUILT_WHATSAPP_NUMBER ? (
+            <a
+              href={getPowerbuiltWhatsAppUrl(
+                "Hello J. A. POWERBUILT CONSTRUCTION. I would like to discuss a project."
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-whatsapp"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+              <span>WhatsApp Us</span>
+            </a>
+          ) : null}
         </div>
 
         <div>
           <strong>Services</strong>
-          <a href="#services">Construction</a>
-          <a href="#services">Estimation</a>
-          <a href="#electrical">Electrical</a>
+          <Link href="/services">Construction</Link>
+          <Link href="/estimate">Estimation</Link>
+          <Link href="/electrical">Electrical</Link>
         </div>
 
         <div>
           <strong>Company</strong>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <Link href="/about">About</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/contact">Contact</Link>
         </div>
 
         <div>
           <strong>Start a Project</strong>
-          <a href="#estimate">Request Estimate</a>
-          <a href="#estimate">Upload Floor Plan</a>
+          <Link href="/estimate">Request Estimate</Link>
+          <Link href="/estimate">Upload Floor Plan</Link>
         </div>
       </div>
 
