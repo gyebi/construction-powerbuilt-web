@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 
-import { firebaseAuth } from "../../../lib/firebase-client";
+import { getFirebaseAuth } from "../../../lib/firebase-client";
 import "./admin-login.css";
 
 export default function AdminLoginPage() {
@@ -32,6 +32,7 @@ export default function AdminLoginPage() {
     setError("");
 
     try {
+      const firebaseAuth = getFirebaseAuth();
       const credential =
         await signInWithEmailAndPassword(
           firebaseAuth,
