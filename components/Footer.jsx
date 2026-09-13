@@ -37,7 +37,7 @@ export default function Footer() {
 
           <Link
             className="footer-staff-login"
-            href="/admin/estimates"
+            href="/admin"
             prefetch={false}
           >
             Staff Login
