@@ -1,7 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-
-import { getAdminSession } from "../../../lib/admin-auth";
 import { db } from "../../../src/prisma/db";
 
 import "./estimates.css";
@@ -21,12 +18,6 @@ function formatDate(value) {
 }
 
 export default async function AdminEstimatesPage() {
-  const session = await getAdminSession();
-
-  if (!session) {
-    redirect("/admin/login");
-  }
-
   const estimates =
     await db.orm.public.EstimateRequest.all();
 
