@@ -35,7 +35,11 @@ export default function Footer() {
             </a>
           ) : null}
 
-          <Link className="footer-staff-login" href="/admin">
+          <Link
+            className="footer-staff-login"
+            href="/admin"
+            prefetch={false}
+          >
             Staff Login
           </Link>
         </div>
