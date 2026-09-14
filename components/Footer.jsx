@@ -37,8 +37,8 @@ export default function Footer() {
 
           <Link
             className="footer-staff-login"
-            //href="/admin"
-            href="/admin/login"
+            href="/admin"
+            //href="/admin/login"
             prefetch={false}
             target="_blank"
             rel="noopener noreferrer"

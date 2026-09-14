@@ -1,13 +1,12 @@
 import Link from "next/link";
-
-export const dynamic = "force-dynamic";
-
-import { getAdminSession } from "../../lib/admin-auth";
-
 import { redirect } from "next/navigation";
 
+import { getAdminSession } from "../../lib/admin-auth";
+import LogoutButton from "./components/LogoutButton";
 
 import "./admin.css";
+
+export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
   const session = await getAdminSession();
@@ -35,9 +34,12 @@ export default async function AdminPage() {
 
           <div className="admin-user">
             <span>Signed in as</span>
+
             <strong>
               {session.email ?? "Team Member"}
             </strong>
+
+            <LogoutButton />
           </div>
         </div>
 

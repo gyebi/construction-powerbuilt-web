@@ -109,6 +109,22 @@
   pointer-events: none;
 }
 
+.admin-user button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: 1px solid #d97706;
+  background: transparent;
+  color: #d97706;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.admin-user button:hover {
+  background: #d97706;
+  color: #fff;
+}
+
 @media (max-width: 900px) {
   .admin-grid {
     grid-template-columns: 1fr;
