@@ -1208,6 +1208,23 @@ Use for:
 
 Use as the production hosting platform.
 
+Every Firebase App Hosting environment must define the following variables:
+
+```text
+DATABASE_URL
+FIREBASE_PROJECT_ID
+FIREBASE_STORAGE_BUCKET
+NEXT_PUBLIC_FIREBASE_API_KEY
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+NEXT_PUBLIC_FIREBASE_PROJECT_ID
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+NEXT_PUBLIC_FIREBASE_APP_ID
+```
+
+Configure them in the App Hosting environment/secret settings for preview and
+production; keep `DATABASE_URL` secret.
+
 Do not introduce Firestore simply because Firebase is already in use. PostgreSQL/Neon remains the project's relational data store.
 
 ---
