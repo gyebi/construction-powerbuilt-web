@@ -66,6 +66,13 @@ export default function Footer() {
           <Link href="/estimate">Request Estimate</Link>
           <Link href="/estimate">Upload Floor Plan</Link>
         </div>
+
+        <div className="footer-contact">
+          <strong>Contact</strong>
+          <a href="tel:+233277489945">0277 489 945</a>
+          <a href="mailto:Jefferyagyarkoh@gmail.com">Jefferyagyarkoh@gmail.com</a>
+          <span>Old Barrier, Kasoa, Ghana</span>
+        </div>
       </div>
 
       <div className="footer-ghana">
